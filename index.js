@@ -14,7 +14,7 @@ const port = process.env.PORT || 4000;
 
 mongoose
   .connect(
-    `mongodb+srv://admin-vinay:235007@cluster0.ucjgxf5.mongodb.net/UserDB`,
+    `mongodb+srv://${process.env.USER_NAME}:${process.env.PASSWORD}@cluster0.ucjgxf5.mongodb.net/UserDB`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -46,7 +46,7 @@ app.post("/sign-in", async (req, res) => {
     ]);
 
     const payload = { user: { id: user.id, email: user.email } };
-    const token = jwt.sign(payload,'thisisthesecretkey', {
+    const token = jwt.sign(payload, process.env.SECRET_KEY, {
       expiresIn: "1h",
     });
     res.json({ success: true, message: "Sign-in successful", token });
