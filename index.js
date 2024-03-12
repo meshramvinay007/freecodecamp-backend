@@ -14,7 +14,7 @@ const port = process.env.PORT || 4000;
 
 mongoose
   .connect(
-    `mongodb+srv://${process.env.USER_NAME}:${process.env.PASSWORD}@${process.env.MONGODB_URI}/UserDB`,
+    `mongodb+srv://${process.env.USER_NAME}:${process.env.PASSWORD}@${process.env.MONGODB_CLUSTER}/UserDB`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
