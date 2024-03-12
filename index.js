@@ -31,6 +31,10 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", UserSchema);
 
+app.get("/", async (req, res) => {
+  res.send("App is running");
+});
+
 app.post("/sign-in", async (req, res) => {
   const { name, email, password } = req.body;
 
